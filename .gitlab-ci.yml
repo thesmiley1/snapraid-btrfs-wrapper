@@ -1,0 +1,15 @@
+image: alpine:latest
+
+lint:
+  script:
+    - apk update
+    - apk upgrade
+
+    - apk add make
+    - apk add nodejs-current npm
+
+    - npm install --global yarn
+
+    - make deps
+
+    - make lint
