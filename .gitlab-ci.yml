@@ -5,8 +5,7 @@ lint:
     - apk update
     - apk upgrade
 
-    - apk add make
-    - apk add nodejs-current npm
+    - apk add make nodejs-current npm shellcheck
 
     - npm install --global yarn
 
