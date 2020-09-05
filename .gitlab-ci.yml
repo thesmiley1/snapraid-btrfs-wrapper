@@ -1,14 +1,14 @@
-image: alpine:latest
+image: 'alpine:latest'
 
 lint:
   script:
-    - apk update
-    - apk upgrade
+    - 'apk update'
+    - 'apk upgrade'
 
-    - apk add make nodejs-current npm shellcheck
+    - 'apk add make nodejs-current npm shellcheck'
 
-    - npm install --global yarn
+    - 'npm install --global yarn'
 
-    - make deps
+    - 'make deps'
 
-    - make lint
+    - 'make lint'
