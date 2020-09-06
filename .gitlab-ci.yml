@@ -5,7 +5,7 @@ lint:
     - 'apk update'
     - 'apk upgrade'
 
-    - 'apk add make nodejs-current npm shellcheck'
+    - 'apk add make nodejs-current npm shellcheck yamllint'
 
     - 'npm install --global yarn'
 
