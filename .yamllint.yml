@@ -1,0 +1,326 @@
+# https://gitlab.com/thesmiley1/dotfiles-public/-/blob/799d8edf106d39052dc0f6bc244ac6fe969c2977/home/.config/yamllint/config
+
+# https://yamllint.readthedocs.io/en/stable/rules.html
+
+# ## Extending the default configuration
+#
+# When writing a custom configuration file, you don’t need to redefine every
+# rule. Just extend the `default` configuration (or any already-existing
+# configuration file).
+extends: 'default'
+
+# ## Ignoring paths
+#
+# It is possible to exclude specific files or directories, so that the linter
+# doesn’t process them.
+#
+# You can either totally ignore files (they won’t be looked at) or ignore paths
+# only for specific rules. Note that this `.gitignore`-style path pattern allows
+# complex path exclusion/inclusion, see the pathspec README file for more
+# details.
+ignore: '/node_modules/'
+
+# ## Rules
+#
+# When linting a document with yamllint, a series of rules (such as
+# `line-length`, `trailing-spaces`, etc.) are checked against.
+#
+# A configuration file can be used to enable or disable these rules, to set
+# their level (error or warning), but also to tweak their options.
+#
+# This page describes the rules and their options.
+rules:
+  # ### Braces
+  #
+  # Use this rule to control the number of spaces inside braces (`{` and `}`).
+  #
+  # #### Options
+  #
+  # * `min-spaces-inside` defines the minimal number of spaces required inside
+  #   braces.
+  # * `max-spaces-inside` defines the maximal number of spaces allowed inside
+  #   braces.
+  # * `min-spaces-inside-empty` defines the minimal number of spaces required
+  #   inside empty braces.
+  # * `max-spaces-inside-empty` defines the maximal number of spaces allowed
+  #   inside empty braces.
+  braces:
+    max-spaces-inside: 0
+    max-spaces-inside-empty: 0
+    min-spaces-inside: 0
+    min-spaces-inside-empty: 0
+
+  # ### Brackets
+  #
+  # Use this rule to control the number of spaces inside brackets (`[` and `]`).
+  #
+  # #### Options
+  #
+  # * `min-spaces-inside` defines the minimal number of spaces required inside
+  #   brackets.
+  # * `max-spaces-inside` defines the maximal number of spaces allowed inside
+  #   brackets.
+  # * `min-spaces-inside-empty` defines the minimal number of spaces required
+  #   inside empty brackets.
+  # * `max-spaces-inside-empty` defines the maximal number of spaces allowed
+  #   inside empty brackets.
+  brackets:
+    max-spaces-inside: 0
+    max-spaces-inside-empty: 0
+    min-spaces-inside: 0
+    min-spaces-inside-empty: 0
+
+  # ### Colons
+  #
+  # Use this rule to control the number of spaces before and after colons (`:`).
+  #
+  # #### Options
+  #
+  # * `max-spaces-before` defines the maximal number of spaces allowed before
+  #   colons (use `-1` to disable).
+  # * `max-spaces-after` defines the maximal number of spaces allowed after
+  #   colons (use `-1` to disable).
+  colons:
+    max-spaces-after: 1
+    max-spaces-before: 0
+
+  # ### Commas
+  #
+  # Use this rule to control the number of spaces before and after commas (`,`).
+  #
+  # #### Options
+  #
+  # * `max-spaces-before` defines the maximal number of spaces allowed before
+  #   commas (use `-1` to disable).
+  # * `min-spaces-after` defines the minimal number of spaces required after
+  #   commas.
+  # * `max-spaces-after` defines the maximal number of spaces allowed after
+  #   commas (use `-1` to disable).
+  commas:
+    max-spaces-after: 1
+    max-spaces-before: 0
+    min-spaces-after: 1
+
+  # ### Comments
+  #
+  # Use this rule to control the position and formatting of comments.
+  #
+  # #### Options
+  #
+  # * Use `require-starting-space` to require a space character right after the
+  #   `#`. Set to `true` to enable, `false` to disable.
+  # * Use `ignore-shebangs` to ignore a shebang at the beginning of the file
+  #   when `require-starting-space` is set.
+  # * `min-spaces-from-content` is used to visually separate inline comments
+  #   from content. It defines the minimal required number of spaces between a
+  #   comment and its preceding content.
+  comments:
+    ignore-shebangs: false
+    min-spaces-from-content: 1
+    require-starting-space: true
+
+  # ### Comments indentation
+  #
+  # Use this rule to force comments to be indented like content.
+  comments-indentation: 'enable'
+
+  # ### Document end
+  #
+  # Use this rule to require or forbid the use of document end marker (`...`).
+  #
+  # #### Options
+  #
+  # * Set `present` to `true` when the document end marker is required, or to
+  #   `false` when it is forbidden.
+  document-end:
+    present: false
+
+  # ### Document start
+  #
+  # Use this rule to require or forbid the use of document start marker (`---`).
+  #
+  # #### Options
+  #
+  # * Set `present` to `true` when the document start marker is required, or to
+  #   `false` when it is forbidden.
+  document-start:
+    present: false
+
+  # ### Empty lines
+  #
+  # Use this rule to set a maximal number of allowed consecutive blank lines.
+  #
+  # #### Options
+  #
+  # * `max` defines the maximal number of empty lines allowed in the document.
+  # * `max-start` defines the maximal number of empty lines allowed at the
+  #   beginning of the file. This option takes precedence over `max`.
+  # * `max-end` defines the maximal number of empty lines allowed at the end of
+  #   the file. This option takes precedence over `max`.
+  empty-lines:
+    max: 1
+    max-end: 0
+    max-start: 1
+
+  # ### Empty values
+  #
+  # Use this rule to prevent nodes with empty content, that implicitly result in
+  # `null` values.
+  #
+  # #### Options
+  #
+  # * Use `forbid-in-block-mappings` to prevent empty values in block mappings.
+  # * Use `forbid-in-flow-mappings` to prevent empty values in flow mappings.
+  empty-values:
+    forbid-in-block-mappings: true
+    forbid-in-flow-mappings: true
+
+  # ### Hyphens
+  #
+  # Use this rule to control the number of spaces after hyphens (`-`).
+  #
+  # #### Options
+  #
+  # * `max-spaces-after` defines the maximal number of spaces allowed after
+  #   hyphens.
+  hyphens:
+    max-spaces-after: 1
+
+  # ### Indentation
+  #
+  # Use this rule to control the indentation.
+  #
+  # #### Options
+  #
+  # * `spaces` defines the indentation width, in spaces. Set either to an
+  #   integer (e.g. `2` or `4`, representing the number of spaces in an
+  #   indentation level) or to `consistent` to allow any number, as long as it
+  #   remains the same within the file.
+  # * `indent-sequences` defines whether block sequences should be indented or
+  #   not (when in a mapping, this indentation is not mandatory – some people
+  #   perceive the - as part of the indentation). Possible values: `true`,
+  #   `false`, `whatever` and `consistent`. `consistent` requires either all
+  #   block sequences to be indented, or none to be. `whatever` means either
+  #   indenting or not indenting individual block sequences is OK.
+  # * `check-multi-line-strings` defines whether to lint indentation in
+  #   multi-line strings. Set to `true` to enable, `false` to disable.
+  indentation:
+    check-multi-line-strings: true
+    indent-sequences: true
+    spaces: 2
+
+  # ### Key duplicates
+  #
+  # Use this rule to prevent multiple entries with the same key in mappings.
+  key-duplicates: 'enable'
+
+  # ### Key ordering
+  #
+  # Use this rule to enforce alphabetical ordering of keys in mappings. The
+  # sorting order uses the Unicode code point number as a default. As a result,
+  # the ordering is case-sensitive and not accent-friendly (see examples below).
+  # This can be changed by setting the global `locale` option. This allows to
+  # sort case and accents properly.
+  key-ordering: 'enable'
+
+  # ### Line length
+  #
+  # Use this rule to set a limit to lines length.
+  #
+  # Note: with Python 2, the `line-length` rule may not work properly with
+  # unicode characters because of the way strings are represented in bytes. We
+  # recommend running yamllint with Python 3.
+  #
+  # #### Options
+  #
+  # * `max` defines the maximal (inclusive) length of lines.
+  # * `allow-non-breakable-words` is used to allow non breakable words (without
+  #   spaces inside) to overflow the limit. This is useful for long URLs, for
+  #   instance. Use `true` to allow, `false` to forbid.
+  # * `allow-non-breakable-inline-mappings` implies `allow-non-breakable-words`
+  #   and extends it to also allow non-breakable words in inline mappings.
+  line-length:
+    allow-non-breakable-inline-mappings: true
+    allow-non-breakable-words: true
+    max: 80
+
+  # ### New line at end of file
+  #
+  # Use this rule to require a new line character (`\n`) at the end of files.
+  #
+  # The POSIX standard requires the last line to end with a new line character.
+  # All UNIX tools expect a new line at the end of files. Most text editors use
+  # this convention too.
+  new-line-at-end-of-file: 'enable'
+
+  # ### New lines
+  #
+  # Use this rule to force the type of new line characters.
+  #
+  # #### Options
+  #
+  # * Set `type` to `unix` to use UNIX-typed new line characters (`\n`), or
+  #   `dos` to use DOS-typed new line characters (`\r\n`).
+  new-lines:
+    type: 'unix'
+
+  # ### Octal values
+  #
+  # Use this rule to prevent values with octal numbers. In YAML, numbers that
+  # start with `0` are interpreted as octal, but this is not always wanted. For
+  # instance `010` is the city code of Beijing, and should not be converted to
+  # `8`.
+  octal-values:
+    forbid-explicit-octal: true
+    forbid-implicit-octal: true
+
+  # ### Quoted strings
+  #
+  # Use this rule to forbid any string values that are not quoted, or to prevent
+  # quoted strings without needing it. You can also enforce the type of the
+  # quote used.
+  #
+  # #### Options
+  #
+  # * `quote-type` defines allowed quotes: `single`, `double` or `any`
+  #   (default).  `required` defines whether using quotes in string values is
+  #   required (`true`, default) or not (`false`), or only allowed when really
+  #   needed (`only-when-needed`).
+  # * `extra-required` is a list of PCRE regexes to force string values to be
+  #   quoted, if they match any regex. This option can only be used with
+  #   `required: false` and `required: only-when-needed`.
+  # * `extra-allowed` is a list of PCRE regexes to allow quoted string values,
+  #   even if `required: only-when-needed` is set.
+  #
+  # Note: Multi-line strings (with `|` or `>`) will not be checked.
+  quoted-strings:
+    quote-type: 'single'
+    required: true
+
+  # ### Trailing spaces
+  #
+  # Use this rule to forbid trailing spaces at the end of lines.
+  trailing-spaces: 'enable'
+
+  # ### Truthy
+  #
+  # Use this rule to forbid non-explictly typed truthy values other than allowed
+  # ones (by default: `true` and `false`), for example `YES` or `off`.
+  #
+  # This can be useful to prevent surprises from YAML parsers transforming
+  # `[yes, FALSE, Off]` into `[true, false, false]` or `{y: 1, yes: 2, on: 3,
+  # true: 4, True: 5}` into `{y: 1, true: 5}`.
+  #
+  # #### Options
+  #
+  # * `allowed-values` defines the list of truthy values which will be ignored
+  #   during linting. The default is `['true', 'false']`, but can be changed to
+  #   any list containing: `'TRUE'`, `'True'`, `'true'`, `'FALSE'`, `'False'`,
+  #   `'false'`, `'YES'`, `'Yes'`, `'yes'`, `'NO'`, `'No'`, `'no'`, `'ON'`,
+  #   `'On'`, `'on'`, `'OFF'`, `'Off'`, `'off'`.
+  # * `check-keys` disables verification for keys in mappings. By default,
+  #   `truthy` rule applies to both keys and values. Set this option to `false`
+  #   to prevent this.
+  truthy:
+    allowed-values: ['true', 'false']
+    check-keys: true
