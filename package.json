@@ -1,6 +1,14 @@
 {
   "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
     "ajv-cli": "^3.2.1",
+    "husky": "^4.3.0",
     "markdownlint-cli": "^0.23.2"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
