@@ -8,10 +8,14 @@ all:
 
 deps:
 	@yarn install
-	@test -f ./schemas/gitlab-ci.json || (mkdir -p ./schemas && wget -O ./schemas/gitlab-ci.json https://json.schemastore.org/gitlab-ci)
+
+	@test -d ./schemas || mkdir ./schemas
+	@test -f ./schemas/gitlab-ci.json || wget -O ./schemas/gitlab-ci.json https://json.schemastore.org/gitlab-ci
+	@test -f ./schemas/package.json || wget -O ./schemas/package.json https://json.schemastore.org/package
 
 lint:
 	@./node_modules/.bin/ajv -s ./schemas/gitlab-ci.json -d .gitlab-ci.yml
+	@./node_modules/.bin/ajv -s ./schemas/package.json -d package.json
 
 # The magic hash here is an epoch that is the first commit from which it and all
 # subsequent commits are expected to lint cleanly.
