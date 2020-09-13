@@ -15,7 +15,7 @@ lint:
 
 # The magic hash here is an epoch that is the first commit from which it and all
 # subsequent commits are expected to lint cleanly.
-	@./node_modules/.bin/commitlint --from 515a9d39663c5dce6149b70ecc56e64bd947c547~1
+	@./node_modules/.bin/commitlint --from 851d990c7380f89ee41c7c4b3d1b1ca58f18bc13~1
 
 	@./node_modules/.bin/markdownlint "**/*.md" --ignore node_modules
 

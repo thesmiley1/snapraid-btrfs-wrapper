@@ -152,7 +152,9 @@ module.exports = {
     // * condition: `scope` is found in value
     //
     // <https://commitlint.js.org/#/reference-rules?id=scope-enum>
-    'scope-enum': [2, 'always', []],
+    'scope-enum': [2, 'always', [
+      'lint',
+    ]],
 
     // ### scope-case
     //
