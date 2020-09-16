@@ -154,6 +154,7 @@ module.exports = {
     // <https://commitlint.js.org/#/reference-rules?id=scope-enum>
     'scope-enum': [2, 'always', [
       'lint',
+      'wrapper',
     ]],
 
     // ### scope-case

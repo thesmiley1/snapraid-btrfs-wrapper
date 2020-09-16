@@ -1,14 +1,27 @@
-image: 'alpine:latest'
+default:
+  before_script:
+    - 'apk update'
+    - 'apk upgrade'
+    - 'apk add make'
+
+  image: 'alpine:latest'
 
 lint:
   script:
-    - 'apk update'
-    - 'apk upgrade'
-
-    - 'apk add make nodejs-current npm shellcheck yamllint'
-
+    - 'apk add nodejs-current npm shellcheck yamllint'
     - 'npm install --global yarn'
 
     - 'make deps'
-
     - 'make lint'
+
+  stage: 'lint'
+
+stages:
+  - 'lint'
+  - 'test'
+
+test:
+  script:
+    - 'make test'
+
+  stage: 'test'

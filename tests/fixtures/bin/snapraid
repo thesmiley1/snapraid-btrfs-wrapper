@@ -1,0 +1,15 @@
+#! /usr/bin/env sh
+
+set -e
+
+
+main() {
+  if [ -n "${SNAPRAID_BTRFS_WRAPPER_TEST_ARGUMENTS}" ]; then
+    printf "%s\\n%s\\n%s\\n" "${1}" "${2}" "${3}"
+  elif [ -n "${SNAPRAID_BTRFS_WRAPPER_TEST_COMMAND}" ]; then
+    printf "%s\\n" "snapraid"
+  fi
+}
+
+
+main "${@}"

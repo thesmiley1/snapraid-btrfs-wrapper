@@ -2,6 +2,7 @@
 	all
 	deps
 	lint
+	test
 
 all:
 	@true
@@ -25,3 +26,6 @@ lint:
 
 	@shellcheck src/*.sh
 	@yamllint .
+
+test:
+	@./tests/snapraid-btrfs-wrapper-test.sh
