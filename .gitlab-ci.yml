@@ -8,7 +8,7 @@ default:
 
 lint:
   script:
-    - 'apk add nodejs-current npm shellcheck yamllint'
+    - 'apk add git nodejs-current npm shellcheck yamllint'
     - 'npm install --global yarn'
 
     - 'make deps'
