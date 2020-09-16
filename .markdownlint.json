@@ -501,7 +501,7 @@
   // Rationale: Except in a code block, blank lines serve no purpose and do not
   // affect the rendering of content.
   "MD012": {
-    "maximum": 1
+    "maximum": 2
   },
 
   // ## MD013 - Line length
@@ -787,7 +787,7 @@
   // will not parse headings that don't have a blank line before, and will parse
   // them as regular text.
   "MD022": {
-    "lines_above": 1,
+    "lines_above": 2,
     "lines_below": 1
   },
 
