@@ -22,6 +22,8 @@ lint:
 # subsequent commits are expected to lint cleanly.
 	@./node_modules/.bin/commitlint --from 851d990c7380f89ee41c7c4b3d1b1ca58f18bc13~1
 
+	@./node_modules/.bin/eslint --ignore-pattern "!.*" .
+
 	@./node_modules/.bin/markdownlint "**/*.md" --ignore node_modules
 
 	@shellcheck src/*.sh
