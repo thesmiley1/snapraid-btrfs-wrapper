@@ -76,6 +76,8 @@ Linters used include:
   - <https://json.schemastore.org/package>
 - [Commitlint][commitlint-home]
   - [commitlint.config.js][this-commitlint-config]
+- [ESLint][eslint-home]
+  - [.eslintrc.js][this-eslintrc]
 - [Markdownlint][markdownlint-home]
   - [.markdownlint.json][this-markdownlint-config]
 - [Shellcheck][shellcheck-home]
@@ -115,6 +117,10 @@ run with `make test`.
 commitlint.config.js
 "commitlint.config.js"
 
+[this-eslintrc]:
+.eslintrc.js
+".eslintrc.js"
+
 [this-makefile]:
 Makefile
 "Makefile"
@@ -140,6 +146,10 @@ https://ajv.js.org/
 [commitlint-home]:
 https://commitlint.js.org/
 "Lint commit messages"
+
+[eslint-home]:
+https://eslint.org/
+"ESLint - Pluggable JavaScript linter"
 
 [git-docs-githooks-commit-msg]:
 https://git-scm.com/docs/githooks#_commit_msg
