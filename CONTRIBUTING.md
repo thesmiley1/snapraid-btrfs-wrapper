@@ -11,6 +11,7 @@ All contributors are welcome!
   - [Linting](#linting)
     - [Commitlint](#commitlint)
   - [Testing](#testing)
+  - [Releasing](#releasing)
 - [FAQ](#faq)
 
 
@@ -99,6 +100,17 @@ All test-related files live under [tests/][this-tests].  The test suite can be
 run with `make test`.
 
 
+### Releasing
+
+The project is configured to use [`standard-version`][standard-version-home], a
+somewhat higher-level program from
+[conventional-changelog][conventional-changelog-org-home] and friends.  Use
+`make release` to run it with the correct default parameters.  This will create
+a new commit and a new tag, both of which need to be pushed to the remote
+repository.  Pushing the tag should cause the CI setup to do its thing and
+generate a release using the project host's API.
+
+
 ## FAQ
 
 - Why is there so much static analysis for just a simple shell script?
@@ -108,6 +120,9 @@ run with `make test`.
     of the static analysis programs.  This got so far as commitlint, which has a
     configuration file in javascript.  ESLint's configuration is fairly
     enormous, so it stopped there.
+- Why is there so much CI/CD automation for just a simple shell script?
+  - See above.  I wanted to take a deeper dive into the subject and used this
+    project to experiment.
 
 <!-- Links -------------------------------------------------------------------->
 
@@ -147,6 +162,10 @@ https://ajv.js.org/
 https://commitlint.js.org/
 "Lint commit messages"
 
+[conventional-changelog-org-home]:
+https://github.com/conventional-changelog?type=source
+"conventional-changelog"
+
 [eslint-home]:
 https://eslint.org/
 "ESLint - Pluggable JavaScript linter"
@@ -174,6 +193,10 @@ https://nodejs.org
 [shellcheck-home]:
 https://www.shellcheck.net
 "ShellCheck"
+
+[standard-version-home]:
+https://github.com/conventional-changelog/standard-version
+"Standard Version"
 
 [wget-home]:
 https://www.gnu.org/software/wget/wget.html

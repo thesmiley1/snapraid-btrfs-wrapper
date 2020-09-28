@@ -155,6 +155,7 @@ module.exports = {
     'scope-enum': [2, 'always', [
       'contrib',
       'lint',
+      'release',
       'wrapper',
     ]],
 

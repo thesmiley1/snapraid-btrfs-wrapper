@@ -2,6 +2,7 @@
 	all
 	deps
 	lint
+	release
 	test
 
 all:
@@ -24,10 +25,14 @@ lint:
 
 	@./node_modules/.bin/eslint --ignore-pattern "!.*" .
 
-	@./node_modules/.bin/markdownlint "**/*.md" --ignore node_modules
+	@./node_modules/.bin/markdownlint "**/*.md" --ignore node_modules --ignore CHANGELOG.md
 
 	@shellcheck src/*.sh
 	@yamllint .
+
+release:
+	@./node_modules/.bin/standard-version --header "## Changelog\
+" --compareUrlFormat "https://gitlab.com/thesmiley1/snapraid-btrfs-wrapper/compare/{{previousTag}}...{{currentTag}}"
 
 test:
 	@./tests/snapraid-btrfs-wrapper-test.sh

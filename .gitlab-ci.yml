@@ -16,9 +16,49 @@ lint:
 
   stage: 'lint'
 
+release:
+  artifacts:
+    expire_in: 'never'
+    paths:
+      - 'snapraid-btrfs-wrapper-${CI_COMMIT_TAG}.tar.xz'
+
+  only:
+    - 'tags'
+
+  script:
+    - 'apk add curl nodejs-current xz'
+
+    - 'mkdir -p "snapraid-btrfs-wrapper-${CI_COMMIT_TAG}/bin"'
+    - 'cp src/snapraid-btrfs-wrapper.sh
+       "snapraid-btrfs-wrapper-${CI_COMMIT_TAG}/bin/snapraid-btrfs-wrapper"'
+    - 'tar cf - "snapraid-btrfs-wrapper-${CI_COMMIT_TAG}/" | xz -9 - >
+       "snapraid-btrfs-wrapper-${CI_COMMIT_TAG}.tar.xz"'
+
+    - >
+      sed -i -e
+      "s;https://gitlab.com/thesmiley1/snapraid-btrfs-wrapper;${CI_PROJECT_URL};g"
+      CHANGELOG.md
+    - >
+      curl
+      --header "Content-Type: application/json"
+      --header "PRIVATE-TOKEN: ${PROJECT_ACCESS_TOKEN}"
+      --data "{
+      \"name\": \"snapraid-btrfs-wrapper ${CI_COMMIT_TAG}\",
+      \"tag_name\": \"${CI_COMMIT_TAG}\",
+      \"description\": \"$(./scripts/changelog-peek.js)\",
+      \"assets\": { \"links\": [ {
+      \"name\": \"snapraid-btrfs-wrapper-${CI_COMMIT_TAG}.tar.xz\",
+      \"url\":
+      \"${CI_JOB_URL}/artifacts/raw/snapraid-btrfs-wrapper-${CI_COMMIT_TAG}.tar.xz?inline=false\"
+      } ] } }"
+      --request POST "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/releases"
+
+  stage: 'release'
+
 stages:
   - 'lint'
   - 'test'
+  - 'release'
 
 test:
   script:

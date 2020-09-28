@@ -1,7 +1,8 @@
 #! /usr/bin/env sh
 
-set -eu
+# snapraid-btrfs-wrapper v0.0.0
 
+set -eu
 
 main() {
   snapraid_btrfs_commands="

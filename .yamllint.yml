@@ -205,7 +205,7 @@ rules:
   # * `check-multi-line-strings` defines whether to lint indentation in
   #   multi-line strings. Set to `true` to enable, `false` to disable.
   indentation:
-    check-multi-line-strings: true
+    check-multi-line-strings: false
     indent-sequences: true
     spaces: 2
 
