@@ -27,6 +27,13 @@ module.exports = {
       'unix',
     ],
 
+    'max-len': [
+      'error', {
+        'code': 80,
+        'ignoreUrls': true,
+      },
+    ],
+
     'quotes': [
       'error',
       'single',
