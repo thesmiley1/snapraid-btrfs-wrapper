@@ -12,6 +12,7 @@ All contributors are welcome!
     - [Commitlint](#commitlint)
   - [Testing](#testing)
   - [Releasing](#releasing)
+    - [GitLab](#gitlab)
 - [FAQ](#faq)
 
 
@@ -111,6 +112,22 @@ repository.  Pushing the tag should cause the CI setup to do its thing and
 generate a release using the project host's API.
 
 
+#### GitLab
+
+In order for [releases][gitlab-releases] to be to be created automatically on
+GitLab hosts, a [project access token][gitlab-project-access-tokens] must be
+created with `api` scope, and a [variable][gitlab-variables] named
+`PROJECT_ACCESS_TOKEN` must be created to hold the token value.  If project
+access tokens are not enabled on the GitLab instance, a [personal access
+token][gitlab-personal-access-tokens] can be used instead.  Note that if using a
+personal access token, it is important to use a bot account with minimal
+privileges to minimize potential security fallout should the token be exposed.
+This is similar to what happens when a project access token is created.  To
+prevent exposure, the variable should be both masked and protected.  To be
+compatible with a protected variable, [protected tags][gitlab-protected-tags]
+must be configured (recommended to use wildcard `v*`).
+
+
 ## FAQ
 
 - Why is there so much static analysis for just a simple shell script?
@@ -177,6 +194,26 @@ https://git-scm.com/docs/githooks#_commit_msg
 [git-home]:
 https://git-scm.com/
 "Git"
+
+[gitlab-personal-access-tokens]:
+https://docs.gitlab.com/ee/user/profile/personal_access_tokens
+"GitLab Personal access tokens"
+
+[gitlab-project-access-tokens]:
+https://docs.gitlab.com/ee/user/project/settings/project_access_tokens
+"GitLab Project access tokens"
+
+[gitlab-protected-tags]:
+https://docs.gitlab.com/ee/user/project/protected_tags
+"GitLab Protected tags"
+
+[gitlab-releases]:
+https://docs.gitlab.com/ee/user/project/releases/
+"GitLab Releases"
+
+[gitlab-variables]:
+https://docs.gitlab.com/ee/ci/variables/
+"GitLab CI/CD environment variables"
 
 [make-home]:
 https://www.gnu.org/software/make/
