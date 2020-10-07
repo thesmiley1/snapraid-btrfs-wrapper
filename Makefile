@@ -28,7 +28,7 @@ lint:
 	@./node_modules/.bin/markdownlint "**/*.md" --ignore node_modules --ignore CHANGELOG.md
 
 	@shellcheck src/*.sh
-	@yamllint .
+	@yamllint --config-file .yamllint.yml .
 
 release:
 	@./node_modules/.bin/standard-version --header "## Changelog\

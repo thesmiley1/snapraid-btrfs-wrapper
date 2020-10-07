@@ -1,4 +1,11 @@
-#! /usr/bin/env sh
+#! /usr/bin/env bash
+
+# Bash is used here for compatibility with Ubuntu.  Seemingly dash on Ubuntu
+# does not support $LINENO, even though it is POSIX standard and support was
+# apparently added upstream in 2009.  Something doesn't seem right here, but I
+# did not pin down definitively why this is happening.
+#
+# * <https://github.com/koalaman/shellcheck/issues/644>
 
 set -eu
 

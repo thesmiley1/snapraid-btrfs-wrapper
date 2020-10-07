@@ -1,0 +1,58 @@
+jobs:
+  release:
+    name: 'Release'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Checkout code'
+        uses: 'actions/checkout@v2'
+
+      - name: 'Setup node'
+        uses: 'actions/setup-node@v2-beta'
+
+      - id: 'create-archive'
+        name: 'Create release archive'
+        # yamllint disable rule:line-length
+        run: |
+          mkdir -p "snapraid-btrfs-wrapper-$(basename "${GITHUB_REF}")/bin"
+          cp src/snapraid-btrfs-wrapper.sh "snapraid-btrfs-wrapper-$(basename "${GITHUB_REF}")/bin/snapraid-btrfs-wrapper"
+          tar cf - "snapraid-btrfs-wrapper-$(basename "${GITHUB_REF}")/" | xz -9 - > "snapraid-btrfs-wrapper-$(basename "${GITHUB_REF}").tar.xz"
+          echo "::set-output name=filename::snapraid-btrfs-wrapper-$(basename "${GITHUB_REF}").tar.xz"
+        # yamllint enable rule:line-length
+
+      - name: 'Changelog fixup'
+        run: >
+          sed -i -e
+          "s;https://gitlab.com/thesmiley1/snapraid-btrfs-wrapper;${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY};g"
+          CHANGELOG.md
+
+      - id: 'changelog-peek'
+        name: 'Changelog peek'
+        run: 'echo "::set-output name=text::$(./scripts/changelog-peek.js)"'
+
+      - env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+        id: 'create-release'
+        name: 'Create release'
+        uses: 'actions/create-release@v1'
+        with:
+          body: '${{ steps.changelog-peek.outputs.text }}'
+          release_name: 'snapraid-btrfs-wrapper ${{ github.ref }}'
+          tag_name: '${{ github.ref }}'
+
+      - env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+        name: 'Upload release archive'
+        uses: 'actions/upload-release-asset@v1'
+        with:
+          asset_content_type: 'application/octet-stream'
+          asset_name: '${{ steps.create-archive.outputs.filename }}'
+          asset_path: './${{ steps.create-archive.outputs.filename }}'
+          upload_url: '${{ steps.create-release.outputs.upload_url }}'
+    timeout-minutes: 10
+
+name: 'Release'
+
+on: # yamllint disable-line rule:truthy
+  push:
+    tags:
+      - 'v*'

@@ -28,7 +28,11 @@ const main = async () => {
     lines.push(line)
   }
 
-  console.log(lines.join('\\n'))
+  if (process.env.GITHUB_ACTIONS) {
+    console.log(lines.join('%0A'))
+  } else {
+    console.log(lines.join('\\n'))
+  }
 }
 
 main().catch((err) => {

@@ -1,0 +1,45 @@
+jobs:
+  lint:
+    name: 'Lint'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Checkout code'
+        uses: 'actions/checkout@v2'
+        with:
+          fetch-depth: '0'
+
+      - name: 'Setup node'
+        uses: 'actions/setup-node@v2-beta'
+
+      - id: 'yarn-cache-dir-path'
+        name: 'Get yarn cache directory path'
+        run: 'echo "::set-output name=dir::$(yarn cache dir)"'
+
+      - name: 'Setup yarn cache'
+        uses: 'actions/cache@v2'
+        with:
+          key: '${{ runner.os }}-yarn-${{ hashFiles(''**/yarn.lock'') }}'
+          path: '${{ steps.yarn-cache-dir-path.outputs.dir }}'
+          restore-keys: '${{ runner.os }}-yarn-'
+
+      - name: 'Install dependencies'
+        run: 'make deps'
+
+      - name: 'Run linters'
+        run: 'make lint'
+    timeout-minutes: 10
+
+  test:
+    name: 'Test'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Checkout code'
+        uses: 'actions/checkout@v2'
+
+      - name: 'Run tests'
+        run: 'make test'
+    timeout-minutes: 10
+
+name: 'CI'
+
+on: ['pull_request', 'push'] # yamllint disable-line rule:truthy

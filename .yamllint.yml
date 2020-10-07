@@ -109,13 +109,10 @@ rules:
   #
   # * Use `require-starting-space` to require a space character right after the
   #   `#`. Set to `true` to enable, `false` to disable.
-  # * Use `ignore-shebangs` to ignore a shebang at the beginning of the file
-  #   when `require-starting-space` is set.
   # * `min-spaces-from-content` is used to visually separate inline comments
   #   from content. It defines the minimal required number of spaces between a
   #   comment and its preceding content.
   comments:
-    ignore-shebangs: false
     min-spaces-from-content: 1
     require-starting-space: true
 
@@ -264,39 +261,6 @@ rules:
   new-lines:
     type: 'unix'
 
-  # ### Octal values
-  #
-  # Use this rule to prevent values with octal numbers. In YAML, numbers that
-  # start with `0` are interpreted as octal, but this is not always wanted. For
-  # instance `010` is the city code of Beijing, and should not be converted to
-  # `8`.
-  octal-values:
-    forbid-explicit-octal: true
-    forbid-implicit-octal: true
-
-  # ### Quoted strings
-  #
-  # Use this rule to forbid any string values that are not quoted, or to prevent
-  # quoted strings without needing it. You can also enforce the type of the
-  # quote used.
-  #
-  # #### Options
-  #
-  # * `quote-type` defines allowed quotes: `single`, `double` or `any`
-  #   (default).  `required` defines whether using quotes in string values is
-  #   required (`true`, default) or not (`false`), or only allowed when really
-  #   needed (`only-when-needed`).
-  # * `extra-required` is a list of PCRE regexes to force string values to be
-  #   quoted, if they match any regex. This option can only be used with
-  #   `required: false` and `required: only-when-needed`.
-  # * `extra-allowed` is a list of PCRE regexes to allow quoted string values,
-  #   even if `required: only-when-needed` is set.
-  #
-  # Note: Multi-line strings (with `|` or `>`) will not be checked.
-  quoted-strings:
-    quote-type: 'single'
-    required: true
-
   # ### Trailing spaces
   #
   # Use this rule to forbid trailing spaces at the end of lines.
@@ -310,17 +274,4 @@ rules:
   # This can be useful to prevent surprises from YAML parsers transforming
   # `[yes, FALSE, Off]` into `[true, false, false]` or `{y: 1, yes: 2, on: 3,
   # true: 4, True: 5}` into `{y: 1, true: 5}`.
-  #
-  # #### Options
-  #
-  # * `allowed-values` defines the list of truthy values which will be ignored
-  #   during linting. The default is `['true', 'false']`, but can be changed to
-  #   any list containing: `'TRUE'`, `'True'`, `'true'`, `'FALSE'`, `'False'`,
-  #   `'false'`, `'YES'`, `'Yes'`, `'yes'`, `'NO'`, `'No'`, `'no'`, `'ON'`,
-  #   `'On'`, `'on'`, `'OFF'`, `'Off'`, `'off'`.
-  # * `check-keys` disables verification for keys in mappings. By default,
-  #   `truthy` rule applies to both keys and values. Set this option to `false`
-  #   to prevent this.
-  truthy:
-    allowed-values: ['true', 'false']
-    check-keys: true
+  truthy: 'enable'

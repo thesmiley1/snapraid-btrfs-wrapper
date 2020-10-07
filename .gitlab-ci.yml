@@ -62,6 +62,7 @@ stages:
 
 test:
   script:
+    - 'apk add bash'
     - 'make test'
 
   stage: 'test'
