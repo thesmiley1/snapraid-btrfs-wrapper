@@ -32,6 +32,8 @@ lint:
 
 release:
 	@./node_modules/.bin/standard-version --header "## Changelog\
+\
+\
 " --compareUrlFormat "https://gitlab.com/thesmiley1/snapraid-btrfs-wrapper/compare/{{previousTag}}...{{currentTag}}"
 
 test:
