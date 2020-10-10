@@ -158,6 +158,7 @@ module.exports = {
       'lint',
       'release',
       'wrapper',
+      'yarn',
     ]],
 
     // ### scope-case

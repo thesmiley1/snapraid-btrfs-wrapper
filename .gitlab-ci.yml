@@ -2,17 +2,17 @@ default:
   before_script:
     - 'apk update'
     - 'apk upgrade'
-    - 'apk add make'
+    - 'apk add nodejs-current npm'
+    - 'npm install --global yarn'
 
   image: 'alpine:latest'
 
 lint:
   script:
-    - 'apk add git nodejs-current npm shellcheck yamllint'
-    - 'npm install --global yarn'
+    - 'apk add git shellcheck yamllint'
+    - 'yarn install --frozen-lockfile'
 
-    - 'make deps'
-    - 'make lint'
+    - 'yarn lint'
 
   stage: 'lint'
 
@@ -26,7 +26,7 @@ release:
     - 'tags'
 
   script:
-    - 'apk add curl nodejs-current xz'
+    - 'apk add curl xz'
 
     - 'mkdir -p "snapraid-btrfs-wrapper-${CI_COMMIT_TAG}/bin"'
     - 'cp src/snapraid-btrfs-wrapper.sh
@@ -63,6 +63,6 @@ stages:
 test:
   script:
     - 'apk add bash'
-    - 'make test'
+    - 'yarn test'
 
   stage: 'test'

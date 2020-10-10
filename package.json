@@ -12,5 +12,10 @@
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "scripts": {
+    "lint": "scripts/lint.sh",
+    "release": "scripts/release.sh",
+    "test": "tests/snapraid-btrfs-wrapper-test.sh"
   }
 }

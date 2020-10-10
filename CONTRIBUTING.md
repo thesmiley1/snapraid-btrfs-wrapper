@@ -7,7 +7,6 @@ All contributors are welcome!
   - [Development dependencies](#development-dependencies)
     - [Unmanaged dependencies](#unmanaged-dependencies)
     - [NPM dependencies](#npm-dependencies)
-    - [Other dependencies](#other-dependencies)
   - [Linting](#linting)
     - [Commitlint](#commitlint)
   - [Testing](#testing)
@@ -33,8 +32,7 @@ static analysis and some other utilities.
 ### Development dependencies
 
 Development dependencies roughly fall into two categories:  unmanaged
-dependencies and dependencies managed by NPM (actually yarn).  There are also a
-couple of schemas.
+dependencies and dependencies managed by NPM (actually yarn).
 
 
 #### Unmanaged dependencies
@@ -44,7 +42,6 @@ version-controlled by the project.  They need to installed manually, through
 your distro's package manager, etc.  These include:
 
 - [Git][git-home]
-- [Make][make-home]
 - [Node.js][nodejs-home]
 - [ShellCheck][shellcheck-home]
 - [Wget][wget-home]
@@ -54,22 +51,14 @@ your distro's package manager, etc.  These include:
 
 #### NPM dependencies
 
-NPM dependencies can be installed with a simple `yarn install`, but it is
-recommended to run `make deps` instead to also download other development
-dependencies (JSON schemas, particularly).
-
-
-#### Other dependencies
-
-Other dependencies (JSON schemas, particularly) should be installed with `make
-deps` and they will be downloaded to a `schemas` directory that is ignored by
-git.
+NPM dependencies can be installed with a simple `yarn install`.
 
 
 ### Linting
 
-Running `make lint` will run all linters.  Look at the
-[`Makefile`][this-makefile] for commands for running individual linters.
+Running `yarn lint` will run all linters.  Look at the
+[`scripts/list.sh`][this-scripts-lint] for commands for running individual
+linters.
 
 Linters used include:
 
@@ -92,13 +81,13 @@ Linters used include:
 Commitlint is most effectively run as a [`commit-msg` git
 hook][git-docs-githooks-commit-msg].  This will automatically be configured by
 [husky][husky-home] if NPM dependencies are installed by yarn (as happens when
-running `make deps`).
+running `yarn install`).
 
 
 ### Testing
 
 All test-related files live under [tests/][this-tests].  The test suite can be
-run with `make test`.
+run with `yarn test`.
 
 
 ### Releasing
@@ -106,7 +95,7 @@ run with `make test`.
 The project is configured to use [`standard-version`][standard-version-home], a
 somewhat higher-level program from
 [conventional-changelog][conventional-changelog-org-home] and friends.  Use
-`make release` to run it with the correct default parameters.  This will create
+`yarn release` to run it with the correct default parameters.  This will create
 a new commit and a new tag, both of which need to be pushed to the remote
 repository.  Pushing the tag should cause the CI setup to do its thing and
 generate a release using the project host's API.
@@ -153,13 +142,13 @@ commitlint.config.js
 .eslintrc.js
 ".eslintrc.js"
 
-[this-makefile]:
-Makefile
-"Makefile"
-
 [this-markdownlint-config]:
 .markdownlint.json
 ".markdownlint.json"
+
+[this-scripts-lint]:
+scripts/lint.sh
+"scripts/lint.sh"
 
 [this-tests]:
 tests/
@@ -214,10 +203,6 @@ https://docs.gitlab.com/ee/user/project/releases/
 [gitlab-variables]:
 https://docs.gitlab.com/ee/ci/variables/
 "GitLab CI/CD environment variables"
-
-[make-home]:
-https://www.gnu.org/software/make/
-"GNU Make"
 
 [markdownlint-home]:
 https://github.com/DavidAnson/markdownlint
