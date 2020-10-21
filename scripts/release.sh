@@ -1,4 +1,4 @@
-#! /usr/bin/sh
+#! /usr/bin/env sh
 
 CANONICAL_URL="https://gitlab.com/thesmiley1/snapraid-btrfs-wrapper"
 COMPARE_URL_FRAGMENT="/compare/{{previousTag}}...{{currentTag}}"
