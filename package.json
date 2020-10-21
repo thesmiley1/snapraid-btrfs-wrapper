@@ -14,8 +14,10 @@
     }
   },
   "scripts": {
+    "dist": "scripts/dist.sh",
     "lint": "scripts/lint.sh",
-    "release": "scripts/release.sh",
+    "release": "scripts/release-dev.sh",
+    "release-ci": "scripts/release-ci.sh",
     "test": "tests/snapraid-btrfs-wrapper-test.sh"
   }
 }

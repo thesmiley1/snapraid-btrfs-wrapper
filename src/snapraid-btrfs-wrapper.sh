@@ -1,8 +1,11 @@
 #! /usr/bin/env sh
 
-# snapraid-btrfs-wrapper v0.0.0
-
 set -eu
+
+
+SNAPRAID_BTRFS_WRAPPER_VERSION="0.0.0"
+export SNAPRAID_BTRFS_WRAPPER_VERSION
+
 
 main() {
   snapraid_btrfs_commands="

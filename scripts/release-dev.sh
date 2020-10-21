@@ -1,6 +1,10 @@
 #! /usr/bin/env sh
 
-CANONICAL_URL="https://gitlab.com/thesmiley1/snapraid-btrfs-wrapper"
+set -eux
+
+# shellcheck disable=SC1091
+. "scripts/constants.sh"
+
 COMPARE_URL_FRAGMENT="/compare/{{previousTag}}...{{currentTag}}"
 COMPARE_URL_FORMAT="${CANONICAL_URL}${COMPARE_URL_FRAGMENT}"
 
