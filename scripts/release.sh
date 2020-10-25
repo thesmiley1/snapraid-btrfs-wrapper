@@ -11,4 +11,5 @@ HEADER="## Changelog"
 
 yarn run standard-version \
   --header "${HEADER}"    \
-  --compareUrlFormat "${COMPARE_URL_FORMAT}"
+  --compareUrlFormat "${COMPARE_URL_FORMAT}" \
+  "${@}"
