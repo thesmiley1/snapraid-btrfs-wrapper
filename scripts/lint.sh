@@ -6,7 +6,7 @@ test -d schemas || mkdir schemas
 test -f schemas/gitlab-ci.json || wget -O schemas/gitlab-ci.json https://json.schemastore.org/gitlab-ci
 test -f schemas/package.json || wget -O schemas/package.json https://json.schemastore.org/package
 
-shellcheck src/*.sh
+shellcheck scripts/*.sh src/*.sh
 
 yamllint --config-file .yamllint.yml .
 
