@@ -950,7 +950,7 @@
   // Rationale: Headings are not meant to be full sentences. More information:
   // <https://cirosantilli.com/markdown-style-guide#punctuation-at-the-end-of-headers>
   "MD026": {
-    "punctuation": ".,;:!?。，；：！？"
+    "punctuation": ".,;:!。，；：！？"
   },
 
   // ## MD027 - Multiple spaces after blockquote symbol

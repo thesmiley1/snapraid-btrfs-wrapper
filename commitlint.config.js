@@ -156,6 +156,7 @@ module.exports = {
       'contrib',
       'github',
       'lint',
+      'readme',
       'release',
       'wrapper',
       'yarn',
