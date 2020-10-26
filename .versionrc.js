@@ -1,8 +1,20 @@
 // https://github.com/conventional-changelog/standard-version#can-i-use-standard-version-for-additional-metadata-files-languages-or-version-files
 
+const tagRegex = /--from "v(\d+\.\d+\.\d+.*)"/
+
+const tagUpdater = {
+  readVersion: (contents) => {
+    return contents.match(tagRegex)[1]
+  },
+
+  writeVersion: (contents, version) => {
+    return contents.replace(tagRegex, `--from "v${version}"`)
+  },
+}
+
 const versionRegex = /VERSION="(\d+\.\d+\.\d+.*)"/
 
-const updater = {
+const versionUpdater = {
   readVersion: (contents) => {
     return contents.match(versionRegex)[1]
   },
@@ -14,15 +26,21 @@ const updater = {
 
 const constants = {
   filename: 'scripts/constants.sh',
-  updater: updater,
+  updater: versionUpdater,
+}
+
+const lint = {
+  filename: 'scripts/lint.sh',
+  updater: tagUpdater,
 }
 
 const wrapper = {
   filename: 'src/snapraid-btrfs-wrapper.sh',
-  updater: updater,
+  updater: versionUpdater,
 }
 
+
 module.exports = {
-  bumpFiles: [constants, wrapper],
+  bumpFiles: [constants, lint, wrapper],
   packageFiles: [constants],
 }
