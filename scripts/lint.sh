@@ -14,7 +14,7 @@ yarn run ajv -s schemas/gitlab-ci.json -d .gitlab-ci.yml
 
 yarn run ajv -s schemas/package.json -d package.json
 
-yarn run commitlint --from "v0.0.0-pre.0"
+yarn run commitlint --from "v0.0.0"
 
 yarn run eslint --ignore-pattern "!.*" .
 
