@@ -30,7 +30,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@commitlint/cli@^9.1.2":
+"@commitlint/cli@9.1.2":
   version "9.1.2"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-9.1.2.tgz#3773699ea2ee6192f8dc14dd09b479baaaa13cd3"
   integrity sha512-ctRrrPqjZ8r4Vc4FXpPaScEpkPwfvB0Us3NK2SD2AnLwXGMxOLFTabDmNySU1Xc40ud2CmJsaV8lpavvzs8ZZA==
@@ -48,7 +48,7 @@
     resolve-global "1.0.0"
     yargs "^15.1.0"
 
-"@commitlint/config-conventional@^9.1.2":
+"@commitlint/config-conventional@9.1.2":
   version "9.1.2"
   resolved "https://registry.yarnpkg.com/@commitlint/config-conventional/-/config-conventional-9.1.2.tgz#9920ad60a2ac64eedad01845b331c970cf854a71"
   integrity sha512-2zfnsrBJuCNJEKMEmltYlCUEoQNE4anvEBI/SYEuiB1JYXYaELijobDBpqhUVjh5NEpprNTY16oMZat6ewnxOg==
@@ -230,7 +230,7 @@ add-stream@^1.0.0:
   resolved "https://registry.yarnpkg.com/add-stream/-/add-stream-1.0.0.tgz#6a7990437ca736d5e1288db92bd3266d5f5cb2aa"
   integrity sha1-anmQQ3ynNtXhKI25K9MmbV9csqo=
 
-ajv-cli@^3.2.1:
+ajv-cli@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/ajv-cli/-/ajv-cli-3.2.1.tgz#fb7bf9480c324345ca00f003afb96dda68b03bd5"
   integrity sha512-EZW2fqkQVMvp3oPfVrUZnh4nl/sENKpSG1q+R5wHqaM71EU7JAxzxYzvkjcgIRer6Y4HFkY1uCEHT/DMWE5apw==
@@ -897,7 +897,7 @@ eslint-visitor-keys@^1.1.0, eslint-visitor-keys@^1.3.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.3.0.tgz#30ebd1ef7c2fdff01c3a4f151044af25fab0523e"
   integrity sha512-6J72N8UNa462wa/KFODt/PJ3IU60SDpC3QXC1Hjc1BXXpfL2C9R5+AU7jhe0F6GREqVMh4Juu+NY7xn+6dipUQ==
 
-eslint@^7.10.0:
+eslint@7.10.0:
   version "7.10.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.10.0.tgz#494edb3e4750fb791133ca379e786a8f648c72b9"
   integrity sha512-BDVffmqWl7JJXqCjAK6lWtcQThZB/aP1HXSH1JKwGwv0LQEdvpR7qzNrUT487RM39B5goWuboFad5ovMBmD8yA==
@@ -1257,7 +1257,7 @@ hosted-git-info@^2.1.4:
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488"
   integrity sha512-f/wzC2QaWBs7t9IYqB4T3sR1xviIViXJRJTWBlx2Gf3g0Xi5vI7Yy4koXQ1c9OYDGHN9sBy1DQ2AB8fqZBWhUg==
 
-husky@^4.3.0:
+husky@4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/husky/-/husky-4.3.0.tgz#0b2ec1d66424e9219d359e26a51c58ec5278f0de"
   integrity sha512-tTMeLCLqSBqnflBZnlVDhpaIMucSGaYyX6855jM4AguGeWCeSzNdb1mfyWduTZ3pe3SJVvVWGL0jO1iKZVPfTA==
@@ -1649,7 +1649,7 @@ markdown-it@10.0.0:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
-markdownlint-cli@^0.23.2:
+markdownlint-cli@0.23.2:
   version "0.23.2"
   resolved "https://registry.yarnpkg.com/markdownlint-cli/-/markdownlint-cli-0.23.2.tgz#43f0a96e2699542b74fb5e6188c025e4934357fc"
   integrity sha512-OSl5OZ8xzGN6z355cqRkiq67zPi3reJimklaF72p0554q85Dng5ToOjjSB9tDKZebSt85jX8cp+ruoQlPqOsPA==
@@ -2386,7 +2386,7 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-standard-version@^9.0.0:
+standard-version@9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/standard-version/-/standard-version-9.0.0.tgz#814055add91eec8679a773768927f927183fc818"
   integrity sha512-eRR04IscMP3xW9MJTykwz13HFNYs8jS33AGuDiBKgfo5YrO0qX0Nxb4rjupVwT5HDYL/aR+MBEVLjlmVFmFEDQ==
