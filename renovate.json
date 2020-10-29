@@ -1,0 +1,12 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "assignees": ["john"],
+  "extends": ["config:base"],
+  "semanticCommits": "enabled",
+  "branchPrefix": "renovate-",
+  "gitLabAutomerge": true,
+  "labels": ["chore", "deps"],
+  "rebaseLabel": "renovate-rebase",
+  "prConcurrentLimit": 1,
+  "rebaseWhen": "behind-base-branch"
+}
