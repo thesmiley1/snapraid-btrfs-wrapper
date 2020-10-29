@@ -8,5 +8,6 @@
   "labels": ["chore", "deps"],
   "rebaseLabel": "renovate-rebase",
   "prConcurrentLimit": 1,
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "automerge": true
 }
