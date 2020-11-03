@@ -204,6 +204,10 @@ https://docs.gitlab.com/ee/user/project/releases/
 https://docs.gitlab.com/ee/ci/variables/
 "GitLab CI/CD environment variables"
 
+[husky-home]:
+https://typicode.github.io/husky/
+"Husky"
+
 [markdownlint-home]:
 https://github.com/DavidAnson/markdownlint
 "Style checker and lint tool for Markdown"
